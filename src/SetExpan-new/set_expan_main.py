@@ -32,12 +32,12 @@ if __name__ == "__main__":
     eidAndPattern2strength = loadWeightByEidAndFeatureMap(folder + 'eidSkipgram2TFIDFStrength.txt', idx=-1)
     eid2types, type2eids = loadFeaturesAndEidMap(folder + 'eidTypeCounts.txt')
     eidAndType2strength = loadWeightByEidAndFeatureMap(folder + 'eidType2TFIDFStrength.txt', idx=-1)
-    eid2embed, embed_matrix, eid2rank, rank2eid, embed_matrix_array = loadEntityEmbedding(folder + 'eid2embed.txt')
+    eid2embed, embed_matrix, eid2rank, rank2eid, embed_matrix_array = loadEntityEmbedding(folder + 'eid2embed.txt', dim=50)
     eidpair2PPMI = loadEidDocPairPPMI(folder + 'eidDocPairPPMI.txt')
     print("=== Finish loading data ...... ===")
 
     print("=== Start SetExpan ...... ===")
-    seedEidsWithConfidence = [(8723, 1.0), (3362, 1.0), (10081, 1.0), (10320, 1.0), (7470, 1.0)]
+    seedEidsWithConfidence = [(147, 1.0), (187, 1.0), (382, 1.0), (381, 1.0), (1930, 1.0)]
     negativeSeedEids = set([])
     newOrderedChildrenEidsWithConfidence = setExpan(seedEidsWithConfidence, negativeSeedEids, eid2patterns,
                                                     pattern2eids, eidAndPattern2strength, eid2types, type2eids,

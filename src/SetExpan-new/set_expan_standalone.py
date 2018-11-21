@@ -47,6 +47,7 @@ def getCombinedWeightByFeatureMap(seedEids, featuresByEidMap, weightByEidAndFeat
     for seed in seedEids:
         featuresOfSeed = featuresByEidMap[seed]
         for sg in featuresOfSeed:
+            sg = sg.lower()
             if sg in combinedWeightByFeatureMap:
                 combinedWeightByFeatureMap[sg] += weightByEidAndFeatureMap[(seed, sg)]
             else:
